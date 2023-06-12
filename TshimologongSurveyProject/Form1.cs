@@ -28,5 +28,7 @@ namespace TshimologongSurveyProject
             Form3 f3 = new Form3();
             f3.Show();
         }
+
+       
     }
 }

@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace TshimologongSurveyProject
 {
     public partial class Form3 : Form
     {
+        SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=DB_Student;Integrated Security=True");
         public Form3()
         {
             InitializeComponent();
@@ -19,8 +21,7 @@ namespace TshimologongSurveyProject
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.Show();
+            
         }
     }
 }
