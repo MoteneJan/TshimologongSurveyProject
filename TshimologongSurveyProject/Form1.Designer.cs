@@ -28,13 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnFillSurvey = new System.Windows.Forms.Button();
+            this.btnViewResults = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnFillSurvey
+            // 
+            this.btnFillSurvey.BackColor = System.Drawing.Color.Silver;
+            this.btnFillSurvey.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFillSurvey.Location = new System.Drawing.Point(97, 68);
+            this.btnFillSurvey.Name = "btnFillSurvey";
+            this.btnFillSurvey.Size = new System.Drawing.Size(341, 53);
+            this.btnFillSurvey.TabIndex = 0;
+            this.btnFillSurvey.Text = "Fill Out Survey";
+            this.btnFillSurvey.UseVisualStyleBackColor = false;
+            this.btnFillSurvey.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnViewResults
+            // 
+            this.btnViewResults.BackColor = System.Drawing.Color.Silver;
+            this.btnViewResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewResults.Location = new System.Drawing.Point(97, 161);
+            this.btnViewResults.Name = "btnViewResults";
+            this.btnViewResults.Size = new System.Drawing.Size(341, 50);
+            this.btnViewResults.TabIndex = 1;
+            this.btnViewResults.Text = "View Survey Results";
+            this.btnViewResults.UseVisualStyleBackColor = false;
+            this.btnViewResults.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(545, 284);
+            this.Controls.Add(this.btnViewResults);
+            this.Controls.Add(this.btnFillSurvey);
+            this.Name = "Form1";
+            this.Text = "SURVEY APP";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnFillSurvey;
+        private System.Windows.Forms.Button btnViewResults;
     }
 }
-
