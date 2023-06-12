@@ -42,7 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.chkFoodChoice = new System.Windows.Forms.CheckedListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -60,8 +60,9 @@
             // 
             // bntSubmit
             // 
-            this.bntSubmit.BackColor = System.Drawing.Color.Silver;
+            this.bntSubmit.BackColor = System.Drawing.Color.Lime;
             this.bntSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntSubmit.ForeColor = System.Drawing.Color.White;
             this.bntSubmit.Location = new System.Drawing.Point(652, 684);
             this.bntSubmit.Margin = new System.Windows.Forms.Padding(5);
             this.bntSubmit.Name = "bntSubmit";
@@ -74,11 +75,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Algerian", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Lime;
             this.label1.Location = new System.Drawing.Point(289, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 33);
+            this.label1.Size = new System.Drawing.Size(281, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Take Our Survey";
             // 
@@ -184,21 +185,21 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "What is yuor favourite food? (You can choose more than 1 item)";
             // 
-            // checkedListBox1
+            // chkFoodChoice
             // 
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.chkFoodChoice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkFoodChoice.FormattingEnabled = true;
+            this.chkFoodChoice.Items.AddRange(new object[] {
             "Pizza",
             "Pasta",
             "Pap and Wors",
             "Chicken Stir Fry",
             "Beef Stir Fry",
             "Other"});
-            this.checkedListBox1.Location = new System.Drawing.Point(123, 295);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(222, 126);
-            this.checkedListBox1.TabIndex = 14;
+            this.chkFoodChoice.Location = new System.Drawing.Point(123, 295);
+            this.chkFoodChoice.Name = "chkFoodChoice";
+            this.chkFoodChoice.Size = new System.Drawing.Size(222, 126);
+            this.chkFoodChoice.TabIndex = 14;
             // 
             // label9
             // 
@@ -320,7 +321,7 @@
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.chkFoodChoice);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -364,7 +365,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox chkFoodChoice;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox7;

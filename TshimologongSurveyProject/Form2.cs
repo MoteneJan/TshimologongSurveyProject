@@ -21,9 +21,9 @@ namespace TshimologongSurveyProject
       
         private void bntSubmit_Click(object sender, EventArgs e)
         {
-            if (txtSurname.Text.Length > 0 && txtFname.Text.Length > 0 && txtContactNum.Text.Length > 0)
+            if (txtSurname.Text.Length > 0 && txtFname.Text.Length > 0 && txtContactNum.Text.Length > 0 )
             {
-                if (txtAge.Text.Length >= 5 || txtAge.Text.Length <= 120)
+                if (txtAge.Text.Length >= 5 || txtAge.Text.Length <= 120 )
                 {
                     try
                     {
@@ -66,5 +66,14 @@ namespace TshimologongSurveyProject
             }
 
         }
+
+        private void GetSelectedFoodChoice()
+        {
+            
+            foreach (string s in chkFoodChoice.CheckedItems)
+                chkFoodChoice.Items.Add(s);
+
+        }
+
     }
 }
