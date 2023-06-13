@@ -66,6 +66,8 @@ namespace TshimologongSurveyProject
             {
                 MessageBox.Show("Please Fill all the Fields!. ");
             }
+
+            this.Hide();
         }
 
         private void Form2_Load(object sender, EventArgs e)

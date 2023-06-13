@@ -22,9 +22,7 @@ namespace TshimologongSurveyProject
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.Show();
-
+            this.Hide();           
         }
 
         private void Form3_Load(object sender, EventArgs e)
