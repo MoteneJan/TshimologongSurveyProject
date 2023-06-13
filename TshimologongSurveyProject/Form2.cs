@@ -24,9 +24,8 @@ namespace TshimologongSurveyProject
             if (txtSurname.Text.Length > 0 && txtFname.Text.Length > 0 && txtContactNum.Text.Length > 0 )
             {
                 if (txtAge.Text.Length >= 5 || txtAge.Text.Length <= 120 )
-                {
-                                            
-                        try
+                {                                            
+                    try
                         {
                             con.Open();
                             SqlCommand com = new SqlCommand("INSERT INTO TableSurvey VALUES('" + txtSurname.Text + "' , '" + txtFname.Text + "' , '" + txtContactNum.Text + "' , '" + dateTimePicker1.Value + "' , '" + txtAge.Text + "')", con);
@@ -67,6 +66,11 @@ namespace TshimologongSurveyProject
             {
                 MessageBox.Show("Please Fill all the Fields!. ");
             }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
