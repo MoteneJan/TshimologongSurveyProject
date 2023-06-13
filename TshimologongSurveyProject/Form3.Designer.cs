@@ -38,7 +38,7 @@
             this.btnOk.BackColor = System.Drawing.Color.Blue;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.ForeColor = System.Drawing.Color.White;
-            this.btnOk.Location = new System.Drawing.Point(313, 624);
+            this.btnOk.Location = new System.Drawing.Point(322, 500);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(92, 39);
             this.btnOk.TabIndex = 0;
@@ -52,18 +52,18 @@
             this.lstResults.ItemHeight = 20;
             this.lstResults.Location = new System.Drawing.Point(12, 74);
             this.lstResults.Name = "lstResults";
-            this.lstResults.Size = new System.Drawing.Size(722, 524);
+            this.lstResults.Size = new System.Drawing.Size(722, 404);
             this.lstResults.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Algerian", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Algerian", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(256, 20);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 32);
+            this.label1.Size = new System.Drawing.Size(179, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "SURVEY RESULTS";
             // 
@@ -72,7 +72,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(746, 692);
+            this.ClientSize = new System.Drawing.Size(747, 556);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstResults);
             this.Controls.Add(this.btnOk);

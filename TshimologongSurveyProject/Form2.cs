@@ -25,35 +25,38 @@ namespace TshimologongSurveyProject
             {
                 if (txtAge.Text.Length >= 5 || txtAge.Text.Length <= 120 )
                 {
-                    try
-                    {
-                        con.Open();
-                        SqlCommand com = new SqlCommand("INSERT INTO TableSurvey VALUES('" + txtSurname.Text + "' , '" + txtFname.Text + "' , '" + txtContactNum.Text + "' , '" + dateTimePicker1.Value + "' , '" + txtAge.Text + "')", con);
-
+                                            
                         try
                         {
-                            com.ExecuteNonQuery();
+                            con.Open();
+                            SqlCommand com = new SqlCommand("INSERT INTO TableSurvey VALUES('" + txtSurname.Text + "' , '" + txtFname.Text + "' , '" + txtContactNum.Text + "' , '" + dateTimePicker1.Value + "' , '" + txtAge.Text + "')", con);
+                            
+                            try
+                            {
+                                com.ExecuteNonQuery();
 
-                            MessageBox.Show("Your Application is Successful!. ");
-                            txtSurname.Clear();
-                            txtFname.Clear();
-                            txtContactNum.Clear();
-                            dateTimePicker1.Value = DateTime.Now;
-                            txtAge.Clear();
+                                MessageBox.Show("Your Application is Successful!. ");
+                                txtSurname.Clear();
+                                txtFname.Clear();
+                                txtContactNum.Clear();
+                                dateTimePicker1.Value = DateTime.Now;
+                                txtAge.Clear();
+
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Your Application Failed!. ");
+                            }
+
+                            con.Close();
+
 
                         }
                         catch (Exception)
                         {
-                            MessageBox.Show("Your Application Failed!. ");
+                            MessageBox.Show("Could not Connect to Database!. ");
                         }
-
-                        con.Close();
-
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Could not Connect to Database!. ");
-                    }
+                    
                 }
                 else
                 {
@@ -64,16 +67,6 @@ namespace TshimologongSurveyProject
             {
                 MessageBox.Show("Please Fill all the Fields!. ");
             }
-
         }
-
-        private void GetSelectedFoodChoice()
-        {
-            
-            foreach (string s in chkFoodChoice.CheckedItems)
-                chkFoodChoice.Items.Add(s);
-
-        }
-
     }
 }
