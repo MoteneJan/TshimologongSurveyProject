@@ -18,7 +18,33 @@ namespace TshimologongSurveyProject
         {
             InitializeComponent();
         }
-      
+
+        //Getting Selected response and conert to Number
+        private int GetResponseValue(GroupBox groupBox)
+        {
+            foreach (RadioButton radioButton in groupBox.Controls)
+            {
+                if (radioButton.Checked)
+                {
+                    // Map the Likert scale responses to numeric values (1 to 5)
+                    switch (radioButton.Text)
+                    {
+                        case "Strongly Agree":
+                            return 5;
+                        case "Agree":
+                            return 4;
+                        case "Neutral":
+                            return 3;
+                        case "Disagree":
+                            return 2;
+                        case "Strongly Disagree":
+                            return 1;
+                    }
+                }
+            }
+            return 0; // Default value if no response is selected
+        }
+
         private void bntSubmit_Click(object sender, EventArgs e)
         {
             if (txtSurname.Text.Length > 0 && txtFname.Text.Length > 0 && txtContactNum.Text.Length > 0 )
@@ -28,13 +54,34 @@ namespace TshimologongSurveyProject
                     try
                         {
                             con.Open();
-                            SqlCommand com = new SqlCommand("INSERT INTO TableSurvey VALUES('" + txtSurname.Text + "' , '" + txtFname.Text + "' , '" + txtContactNum.Text + "' , '" + dateTimePicker1.Value + "' , '" + txtAge.Text + "')", con);
-                            
-                            try
-                            {
-                                com.ExecuteNonQuery();
+                        // Get the selected responses from the Likert scale RadioButtons
+                        int eatOutResponse = GetResponseValue(groupBoxEatOut);
+                        int watchMoviesResponse = GetResponseValue(groupBoxMovies);
+                        int watchTVResponse = GetResponseValue(groupBoxTV);
+                        int listenToRadioResponse = GetResponseValue(groupBoxRadio);
+                      
+                        SqlCommand com = new SqlCommand("INSERT INTO TableSurvey (Surname, FirstNames, ContactNumber, Date,Age ,ItemValue , EatOutResponse, TVResponse,MovieResponse, RadioResponse) VALUES('" + txtSurname.Text + "' , '" + txtFname.Text + "' , '" + txtContactNum.Text + "' , '" + dateTimePicker1.Value + "' , '" + txtAge.Text + "', +" +
+                            "@ItemValue, @EatOutResponse, @TVResponse, @MovieResponse, @RadioResponse)", con);
 
-                                MessageBox.Show("Your Application is Successful!. ");
+                        // Add a parameter for each selected item in the CheckedListBox
+                        foreach (var selectedItem in chkFoodChoice.CheckedItems)
+                        {
+                            com.Parameters.Clear();
+                            com.Parameters.AddWithValue("@ItemValue", selectedItem.ToString());
+                        }
+
+                            // Add parameters for each response
+                        com.Parameters.AddWithValue("@EatOutResponse", eatOutResponse);
+                        com.Parameters.AddWithValue("@MovieResponse", watchMoviesResponse);
+                        com.Parameters.AddWithValue("@TVResponse", watchTVResponse);
+                        com.Parameters.AddWithValue("@RadioResponse", listenToRadioResponse);
+
+                        try
+                        {
+                            // Execute the SQL command
+                            com.ExecuteNonQuery();
+
+                                MessageBox.Show("Your Application is Successful!. " );
                                 txtSurname.Clear();
                                 txtFname.Clear();
                                 txtContactNum.Clear();
@@ -42,14 +89,12 @@ namespace TshimologongSurveyProject
                                 txtAge.Clear();
 
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
-                                MessageBox.Show("Your Application Failed!. ");
+                                MessageBox.Show("Your Application Failed!. " + ex);
                             }
 
                             con.Close();
-
-
                         }
                         catch (Exception)
                         {

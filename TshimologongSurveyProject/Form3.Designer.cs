@@ -38,7 +38,7 @@
             this.btnOk.BackColor = System.Drawing.Color.Blue;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.ForeColor = System.Drawing.Color.White;
-            this.btnOk.Location = new System.Drawing.Point(322, 500);
+            this.btnOk.Location = new System.Drawing.Point(320, 494);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(92, 39);
             this.btnOk.TabIndex = 0;
@@ -50,9 +50,9 @@
             // 
             this.lstResults.FormattingEnabled = true;
             this.lstResults.ItemHeight = 20;
-            this.lstResults.Location = new System.Drawing.Point(12, 74);
+            this.lstResults.Location = new System.Drawing.Point(12, 54);
             this.lstResults.Name = "lstResults";
-            this.lstResults.Size = new System.Drawing.Size(722, 404);
+            this.lstResults.Size = new System.Drawing.Size(722, 424);
             this.lstResults.TabIndex = 2;
             // 
             // label1
@@ -77,7 +77,7 @@
             this.Controls.Add(this.lstResults);
             this.Controls.Add(this.btnOk);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Form3";
             this.Text = "SURVEY APP";
             this.Load += new System.EventHandler(this.Form3_Load);
