@@ -253,7 +253,7 @@
             "Other"});
             this.chkFoodChoice.Location = new System.Drawing.Point(120, 274);
             this.chkFoodChoice.Name = "chkFoodChoice";
-            this.chkFoodChoice.Size = new System.Drawing.Size(222, 126);
+            this.chkFoodChoice.Size = new System.Drawing.Size(222, 114);
             this.chkFoodChoice.TabIndex = 14;
             // 
             // label9
@@ -293,7 +293,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(4, 127);
+            this.label23.Location = new System.Drawing.Point(-1, 123);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(199, 18);
             this.label23.TabIndex = 4;
@@ -302,7 +302,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(5, 88);
+            this.label22.Location = new System.Drawing.Point(5, 84);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(147, 20);
             this.label22.TabIndex = 3;
@@ -574,16 +574,16 @@
             this.groupBoxTV.Controls.Add(this.radioButton8);
             this.groupBoxTV.Controls.Add(this.radioButton9);
             this.groupBoxTV.Controls.Add(this.radioButton10);
-            this.groupBoxTV.Location = new System.Drawing.Point(277, 513);
+            this.groupBoxTV.Location = new System.Drawing.Point(277, 543);
             this.groupBoxTV.Name = "groupBoxTV";
-            this.groupBoxTV.Size = new System.Drawing.Size(519, 54);
+            this.groupBoxTV.Size = new System.Drawing.Size(519, 52);
             this.groupBoxTV.TabIndex = 34;
             this.groupBoxTV.TabStop = false;
             // 
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(148, 15);
+            this.radioButton6.Location = new System.Drawing.Point(148, 19);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(14, 13);
             this.radioButton6.TabIndex = 4;
@@ -637,9 +637,9 @@
             this.groupBoxMovies.Controls.Add(this.radioButton13);
             this.groupBoxMovies.Controls.Add(this.radioButton14);
             this.groupBoxMovies.Controls.Add(this.radioButton15);
-            this.groupBoxMovies.Location = new System.Drawing.Point(277, 551);
+            this.groupBoxMovies.Location = new System.Drawing.Point(277, 509);
             this.groupBoxMovies.Name = "groupBoxMovies";
-            this.groupBoxMovies.Size = new System.Drawing.Size(519, 44);
+            this.groupBoxMovies.Size = new System.Drawing.Size(519, 47);
             this.groupBoxMovies.TabIndex = 35;
             this.groupBoxMovies.TabStop = false;
             // 
@@ -700,16 +700,16 @@
             this.groupBoxRadio.Controls.Add(this.radioButton18);
             this.groupBoxRadio.Controls.Add(this.radioButton19);
             this.groupBoxRadio.Controls.Add(this.radioButton20);
-            this.groupBoxRadio.Location = new System.Drawing.Point(277, 589);
+            this.groupBoxRadio.Location = new System.Drawing.Point(277, 581);
             this.groupBoxRadio.Name = "groupBoxRadio";
-            this.groupBoxRadio.Size = new System.Drawing.Size(519, 48);
+            this.groupBoxRadio.Size = new System.Drawing.Size(519, 56);
             this.groupBoxRadio.TabIndex = 36;
             this.groupBoxRadio.TabStop = false;
             // 
             // radioButton16
             // 
             this.radioButton16.AutoSize = true;
-            this.radioButton16.Location = new System.Drawing.Point(148, 15);
+            this.radioButton16.Location = new System.Drawing.Point(149, 19);
             this.radioButton16.Name = "radioButton16";
             this.radioButton16.Size = new System.Drawing.Size(14, 13);
             this.radioButton16.TabIndex = 4;
@@ -791,6 +791,7 @@
             this.Controls.Add(this.bntSubmit);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximizeBox = false;
             this.Name = "Form2";
             this.Text = "SURVEY APP";
             this.Load += new System.EventHandler(this.Form2_Load);

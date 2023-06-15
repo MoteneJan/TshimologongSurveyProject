@@ -79,6 +79,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnViewResults);
             this.Controls.Add(this.btnFillSurvey);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "SURVEY APP";
             this.ResumeLayout(false);

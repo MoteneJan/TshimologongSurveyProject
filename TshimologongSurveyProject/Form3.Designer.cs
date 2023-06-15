@@ -78,6 +78,7 @@
             this.Controls.Add(this.btnOk);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximizeBox = false;
             this.Name = "Form3";
             this.Text = "SURVEY APP";
             this.Load += new System.EventHandler(this.Form3_Load);

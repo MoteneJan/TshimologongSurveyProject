@@ -20,27 +20,116 @@ namespace TshimologongSurveyProject
         }
 
         //Getting Selected response and conert to Number
-        private int GetResponseValue(GroupBox groupBox)
+        private int GetEatOutResponseValue(GroupBox groupBoxEatOut)
         {
-            foreach (RadioButton radioButton in groupBox.Controls)
+            foreach (RadioButton radioButton in groupBoxEatOut.Controls)
             {
-                if (radioButton.Checked)
+                if (radioButton1.Checked)
                 {
-                    // Map the Likert scale responses to numeric values (1 to 5)
-                    switch (radioButton.Text)
-                    {
-                        case "Strongly Agree":
-                            return 5;
-                        case "Agree":
-                            return 4;
-                        case "Neutral":
-                            return 3;
-                        case "Disagree":
-                            return 2;
-                        case "Strongly Disagree":
-                            return 1;
-                    }
+                    return 1;
                 }
+                else if (radioButton5.Checked)
+                {
+                    return 2;
+                }
+                else if (radioButton2.Checked)
+                {
+                    return 3;
+                }
+                else if (radioButton3.Checked)
+                {
+                    return 4;
+                }
+                else if (radioButton4.Checked)
+                {
+                    return 5;
+                }
+
+            }
+            return 0;
+        }
+
+        private int GetTVResponseValue(GroupBox groupBoxTV)
+        {
+            foreach (RadioButton radioButton in groupBoxEatOut.Controls)
+            {
+                if (radioButton10.Checked)
+                {
+                    return 1;
+                }
+                else if (radioButton6.Checked)
+                {
+                    return 2;
+                }
+                else if (radioButton9.Checked)
+                {
+                    return 3;
+                }
+                else if (radioButton8.Checked)
+                {
+                    return 4;
+                }
+                else if (radioButton7.Checked)
+                {
+                    return 5;
+                }
+            }
+            return 0;
+        }
+
+        private int GetMoviesResponseValue(GroupBox groupBoxMovies)
+        {
+            foreach (RadioButton radioButton in groupBoxEatOut.Controls)
+            {
+                if (radioButton15.Checked)
+                {
+                    return 1;
+                }
+                else if (radioButton11.Checked)
+                {
+                    return 2;
+                }
+                else if (radioButton14.Checked)
+                {
+                    return 3;
+                }
+                else if (radioButton13.Checked)
+                {
+                    return 4;
+                }
+                else if (radioButton12.Checked)
+                {
+                    return 5;
+                }
+
+            }
+            return 0;
+        }
+        private int GetRadioResponseValue(GroupBox groupBoxRadio)
+        {
+            foreach (RadioButton radioButton in groupBoxEatOut.Controls)
+            {
+                if (radioButton20.Checked)
+                {
+                    return 1;
+                }
+                else if (radioButton16.Checked)
+                {
+                    return 2;
+                }
+                else if (radioButton19.Checked)
+                {
+                    return 3;
+                }
+                else if (radioButton18.Checked)
+                {
+                    return 4;
+                }
+                else if (radioButton17.Checked)
+                {
+                    return 5;
+                }
+
             }
             return 0; // Default value if no response is selected
         }
@@ -52,13 +141,13 @@ namespace TshimologongSurveyProject
                 if (txtAge.Text.Length >= 5 || txtAge.Text.Length <= 120 )
                 {                                            
                     try
-                        {
+                        { 
                             con.Open();
                         // Get the selected responses from the Likert scale RadioButtons
-                        int eatOutResponse = GetResponseValue(groupBoxEatOut);
-                        int watchMoviesResponse = GetResponseValue(groupBoxMovies);
-                        int watchTVResponse = GetResponseValue(groupBoxTV);
-                        int listenToRadioResponse = GetResponseValue(groupBoxRadio);
+                        int eatOutResponse = GetEatOutResponseValue(groupBoxEatOut);
+                        int watchMoviesResponse = GetMoviesResponseValue(groupBoxMovies);
+                        int watchTVResponse = GetTVResponseValue(groupBoxTV);
+                        int listenToRadioResponse = GetRadioResponseValue(groupBoxRadio);
                       
                         SqlCommand com = new SqlCommand("INSERT INTO TableSurvey (Surname, FirstNames, ContactNumber, Date,Age ,ItemValue , EatOutResponse, TVResponse,MovieResponse, RadioResponse) VALUES('" + txtSurname.Text + "' , '" + txtFname.Text + "' , '" + txtContactNum.Text + "' , '" + dateTimePicker1.Value + "' , '" + txtAge.Text + "', +" +
                             "@ItemValue, @EatOutResponse, @TVResponse, @MovieResponse, @RadioResponse)", con);
