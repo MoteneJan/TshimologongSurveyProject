@@ -19,6 +19,79 @@ namespace TshimologongSurveyProject
             InitializeComponent();
         }
 
+        private void bntSubmit_Click(object sender, EventArgs e)
+        {
+            if (txtSurname.Text.Length > 0 && txtFname.Text.Length > 0 && txtContactNum.Text.Length > 0 )
+            {
+                if (txtAge.Text.Length >= 5 || txtAge.Text.Length <= 120 )
+                {                                            
+                    try
+                        { 
+                            con.Open();
+                        // Get the selected responses from the Likert scale RadioButtons
+                        int eatOutResponse = GetEatOutResponseValue(groupBoxEatOut);
+                        int watchMoviesResponse = GetMoviesResponseValue(groupBoxMovies);
+                        int watchTVResponse = GetTVResponseValue(groupBoxTV);
+                        int listenToRadioResponse = GetRadioResponseValue(groupBoxRadio);
+                      
+                        SqlCommand com = new SqlCommand("INSERT INTO TableSurvey (Surname, FirstNames, ContactNumber, Date,Age ,ItemValue , EatOutResponse, TVResponse,MovieResponse, RadioResponse) VALUES('" + txtSurname.Text + "' , '" + txtFname.Text + "' , '" + txtContactNum.Text + "' , '" + dateTimePicker1.Value + "' , '" + txtAge.Text + "', +" +
+                            "@ItemValue, @EatOutResponse, @TVResponse, @MovieResponse, @RadioResponse)", con);
+
+                        // Add a parameter for each selected item in the CheckedListBox
+                        foreach (var selectedItem in chkFoodChoice.CheckedItems)
+                        {
+                            com.Parameters.Clear();
+                            com.Parameters.AddWithValue("@ItemValue", selectedItem.ToString());
+                        }
+
+                            // Add parameters for each response
+                        com.Parameters.AddWithValue("@EatOutResponse", eatOutResponse);
+                        com.Parameters.AddWithValue("@MovieResponse", watchMoviesResponse);
+                        com.Parameters.AddWithValue("@TVResponse", watchTVResponse);
+                        com.Parameters.AddWithValue("@RadioResponse", listenToRadioResponse);
+
+                        try
+                        {
+                            // Execute the SQL command
+                            com.ExecuteNonQuery();
+
+                                MessageBox.Show("Your Application is Successful!. " );
+                                txtSurname.Clear();
+                                txtFname.Clear();
+                                txtContactNum.Clear();
+                                dateTimePicker1.Value = DateTime.Now;
+                                txtAge.Clear();
+                                this.Hide();
+
+                        }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Your Application Failed!. " + ex);
+                            }
+
+                            con.Close();
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Could not Connect to Database!. ");
+                        }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Age Should Range From 5 years to 120 Years! ");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Fill all the Fields!. ");
+            }                        
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
         //Getting Selected response and conert to Number
         private int GetEatOutResponseValue(GroupBox groupBoxEatOut)
         {
@@ -132,81 +205,6 @@ namespace TshimologongSurveyProject
 
             }
             return 0; // Default value if no response is selected
-        }
-
-        private void bntSubmit_Click(object sender, EventArgs e)
-        {
-            if (txtSurname.Text.Length > 0 && txtFname.Text.Length > 0 && txtContactNum.Text.Length > 0 )
-            {
-                if (txtAge.Text.Length >= 5 || txtAge.Text.Length <= 120 )
-                {                                            
-                    try
-                        { 
-                            con.Open();
-                        // Get the selected responses from the Likert scale RadioButtons
-                        int eatOutResponse = GetEatOutResponseValue(groupBoxEatOut);
-                        int watchMoviesResponse = GetMoviesResponseValue(groupBoxMovies);
-                        int watchTVResponse = GetTVResponseValue(groupBoxTV);
-                        int listenToRadioResponse = GetRadioResponseValue(groupBoxRadio);
-                      
-                        SqlCommand com = new SqlCommand("INSERT INTO TableSurvey (Surname, FirstNames, ContactNumber, Date,Age ,ItemValue , EatOutResponse, TVResponse,MovieResponse, RadioResponse) VALUES('" + txtSurname.Text + "' , '" + txtFname.Text + "' , '" + txtContactNum.Text + "' , '" + dateTimePicker1.Value + "' , '" + txtAge.Text + "', +" +
-                            "@ItemValue, @EatOutResponse, @TVResponse, @MovieResponse, @RadioResponse)", con);
-
-                        // Add a parameter for each selected item in the CheckedListBox
-                        foreach (var selectedItem in chkFoodChoice.CheckedItems)
-                        {
-                            com.Parameters.Clear();
-                            com.Parameters.AddWithValue("@ItemValue", selectedItem.ToString());
-                        }
-
-                            // Add parameters for each response
-                        com.Parameters.AddWithValue("@EatOutResponse", eatOutResponse);
-                        com.Parameters.AddWithValue("@MovieResponse", watchMoviesResponse);
-                        com.Parameters.AddWithValue("@TVResponse", watchTVResponse);
-                        com.Parameters.AddWithValue("@RadioResponse", listenToRadioResponse);
-
-                        try
-                        {
-                            // Execute the SQL command
-                            com.ExecuteNonQuery();
-
-                                MessageBox.Show("Your Application is Successful!. " );
-                                txtSurname.Clear();
-                                txtFname.Clear();
-                                txtContactNum.Clear();
-                                dateTimePicker1.Value = DateTime.Now;
-                                txtAge.Clear();
-
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Your Application Failed!. " + ex);
-                            }
-
-                            con.Close();
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Could not Connect to Database!. ");
-                        }
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Age Should Range From 5 years to 120 Years! ");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please Fill all the Fields!. ");
-            }
-
-            this.Hide();
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

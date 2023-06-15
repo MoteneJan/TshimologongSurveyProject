@@ -253,7 +253,7 @@
             "Other"});
             this.chkFoodChoice.Location = new System.Drawing.Point(120, 274);
             this.chkFoodChoice.Name = "chkFoodChoice";
-            this.chkFoodChoice.Size = new System.Drawing.Size(222, 114);
+            this.chkFoodChoice.Size = new System.Drawing.Size(209, 114);
             this.chkFoodChoice.TabIndex = 14;
             // 
             // label9
