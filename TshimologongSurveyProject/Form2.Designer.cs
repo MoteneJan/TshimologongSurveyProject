@@ -502,7 +502,7 @@
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(25, 16);
             this.label26.TabIndex = 24;
-            this.label26.Text = "(3)";
+            this.label26.Text = "(5)";
             // 
             // groupBoxEatOut
             // 
