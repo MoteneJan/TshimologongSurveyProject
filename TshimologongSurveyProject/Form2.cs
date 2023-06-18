@@ -23,7 +23,8 @@ namespace TshimologongSurveyProject
         {
             if (txtSurname.Text.Length > 0 && txtFname.Text.Length > 0 && txtContactNum.Text.Length > 0 )
             {
-                if (txtAge.Text.Length >= 5 || txtAge.Text.Length <= 120 )
+                int temp = int.Parse(txtAge.Text);
+                if (temp >= 5 && temp <= 120 )
                 {                                            
                     try
                         { 

@@ -14,15 +14,7 @@ namespace TshimologongSurveyProject
     public partial class Form3 : Form
     {
         private const string connectionString = "Data Source=.;Initial Catalog=AppSurvey;Integrated Security=True";
-        private string tableName = "TableSurvey";
-        private string ageColumnName = "Age";
-        private string pizzaColumnName = "ItemValue";
-        private string pastaColumnName = "ItemValue";
-        private string papAndWorsColumnName = "ItemValue";
-        private string eatOutColumnName = "EatOutResponse";
-        private string tvColumnName = "TVResponse";
-        private string moviesColumnName = "MovieResponse";
-        private string radioColumnName = "RadioResponse";
+        
         public Form3()
         {
             InitializeComponent();
@@ -35,13 +27,13 @@ namespace TshimologongSurveyProject
 
         private void Form3_Load(object sender, EventArgs e)
         { 
-            string query = $@"SELECT COUNT(*) AS TotalCount,AVG({ageColumnName}) AS AverageAge,MIN({ageColumnName}) AS YoungestAge,
-                              MAX({ageColumnName}) AS OldestAge, (COUNT(CASE WHEN {pizzaColumnName} = 'Yes' THEN 1 END) / CAST(COUNT(*) AS FLOAT)) * 100 AS PizzaPercentage,
-                              (COUNT(CASE WHEN {pastaColumnName} = 'Yes' THEN 1 END) / CAST(COUNT(*) AS FLOAT)) * 100 AS PastaPercentage,
-                              (COUNT(CASE WHEN {papAndWorsColumnName} = 'Yes' THEN 1 END) / CAST(COUNT(*) AS FLOAT)) * 100 AS PapAndWorsPercentage,
-                              AVG({eatOutColumnName}) AS AverageRatingEatOut, AVG({tvColumnName}) AS AverageRatingTV,AVG({moviesColumnName}) AS AverageRatingMovies,
-                              AVG({radioColumnName}) AS AverageRatingRadio
-                              FROM {tableName}";
+            string query = $@"SELECT COUNT(*) AS TotalCount,AVG(age) AS AverageAge,MIN(age) AS YoungestAge,
+                              MAX(age) AS OldestAge, (COUNT(CASE WHEN ItemValue = 'Pizza' THEN 1 END) / CAST(COUNT(*) AS FLOAT)) * 100 AS PizzaPercentage,
+                              (COUNT(CASE WHEN ItemValue = 'Pasta' THEN 1 END) / CAST(COUNT(*) AS FLOAT)) * 100 AS PastaPercentage,
+                              (COUNT(CASE WHEN ItemValue = 'Pap and Wors' THEN 1 END) / CAST(COUNT(*) AS FLOAT)) * 100 AS PapAndWorsPercentage, 
+							  AVG(EatOutResponse) AS AverageRatingEatOut, AVG(TVResponse) AS AverageRatingTV, AVG(MovieResponse) AS AverageRatingMovies,
+							  AVG(RadioResponse) AS AverageRatingRadio
+                              FROM TableSurvey";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -68,10 +60,12 @@ namespace TshimologongSurveyProject
                         lstResults.Items.Add("Average Age: \t\t\t\t" + averageAge.ToString("0"));
                         lstResults.Items.Add("Youngest person who paricipated in survey: \t" + youngestAge);
                         lstResults.Items.Add("Oldest person who paricipated in survey: \t" + oldestAge);
-                        lstResults.Items.Add("\nPercentage of people who like pizza: \t\t" + pizzaPercentage.ToString("0.0") + "%");
-                        lstResults.Items.Add("\nPercentage of people who like pasta: \t\t" + pastaPercentage.ToString("0.0") + "%");
-                        lstResults.Items.Add("\nPercentage of people who like pap and wors: \t" + papAndWorsPercentage.ToString("0.0") + "%");
-                        lstResults.Items.Add("\nPeople like to Eat Out: \t\t\t" + averageRatingEatOut.ToString("0.0"));
+                        lstResults.Items.Add(" ");
+                        lstResults.Items.Add("Percentage of people who like pizza: \t\t" + pizzaPercentage.ToString("0.0") + "%");
+                        lstResults.Items.Add("Percentage of people who like pasta: \t\t" + pastaPercentage.ToString("0.0") + "%");
+                        lstResults.Items.Add("Percentage of people who like pap and wors: \t" + papAndWorsPercentage.ToString("0.0") + "%");
+                        lstResults.Items.Add(" ");
+                        lstResults.Items.Add("People like to Eat Out: \t\t\t" + averageRatingEatOut.ToString("0.0"));
                         lstResults.Items.Add("People like to watch Movies: \t\t\t" + averageRatingMovies.ToString("0.0"));
                         lstResults.Items.Add("People like to watch TV: \t\t\t" + averageRatingTV.ToString("0.0"));
                         lstResults.Items.Add("People like to listen to Radio: \t\t" + averageRatingRadio.ToString("0.0"));
